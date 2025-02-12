@@ -1,0 +1,9 @@
+public class SignalSender¨{
+    public.out.system(String[] args){
+        Scanner scanner = new Scanner(Sistem.in);
+
+        System.out.print("introduce tu nombre ");
+        String nombre = scanner.nextline();
+
+    }
+}
