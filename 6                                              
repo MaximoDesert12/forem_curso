@@ -1,0 +1,9 @@
+import java.util.Scanner;
+
+public class CondicionalesIfElse {
+    
+    Scanner scanner = new Scanner(System.in);
+   System.out.print("introduce tu edad") 
+}int edad = scanner.nextInt();
+
+if ()
