@@ -1,9 +1,14 @@
 import java.util.Scanner;
 
 public class CondicionalesIfElse {
+    public static void main(String[] args){
     
     Scanner scanner = new Scanner(System.in);
-   System.out.print("introduce tu edad") 
-}int edad = scanner.nextInt();
+   System.out.println("introduce tu edad") 
+int edad = scanner.nextInt();
 
-if ()
+if (edad = 18)  {
+System.out.println("Eres mayor de edad.");
+
+}
+}
