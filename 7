@@ -1,0 +1,138 @@
+public class TaskBlock {
+    // Información de identificación
+    private int taskId;
+    private String taskName;
+    private int remainingTime; // Tiempo restante de ejecución
+    private String taskStatus; // Estado de la tarea (Ej: "En espera", "Ejecutando", "Terminado")
+
+    // Información de recursos utilizados
+    private double memoryUsage; // Memoria utilizada en MB
+    private int diskReadOperations; // Operaciones de lectura en disco
+    private int diskWriteOperations; // Operaciones de escritura en disco
+    private double cpuTimeUsed; // Tiempo de CPU utilizado en segundos
+
+    // Puntero a otra TaskBlock (en caso de que haya una lista encadenada de tareas)
+    private TaskBlock nextTaskBlock;
+
+    // Constructor
+    public TaskBlock(int taskId, String taskName) {
+        this.taskId = taskId;
+        this.taskName = taskName;
+    }
+
+    // Getters y Setters
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
+    }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public int getRemainingTime() {
+        return remainingTime;
+    }
+
+    public void setRemainingTime(int remainingTime) {
+        this.remainingTime = remainingTime;
+    }
+
+    public String getTaskStatus() {
+        return taskStatus;
+    }
+
+    public void setTaskStatus(String taskStatus) {
+        this.taskStatus = taskStatus;
+    }
+
+    public double getMemoryUsage() {
+        return memoryUsage;
+    }
+
+    public void setMemoryUsage(double memoryUsage) {
+        this.memoryUsage = memoryUsage;
+    }
+
+    public int getDiskReadOperations() {
+        return diskReadOperations;
+    }
+
+    public void setDiskReadOperations(int diskReadOperations) {
+        this.diskReadOperations = diskReadOperations;
+    }
+
+    public int getDiskWriteOperations() {
+        return diskWriteOperations;
+    }
+
+    public void setDiskWriteOperations(int diskWriteOperations) {
+        this.diskWriteOperations = diskWriteOperations;
+    }
+
+    public double getCpuTimeUsed() {
+        return cpuTimeUsed;
+    }
+
+    public void setCpuTimeUsed(double cpuTimeUsed) {
+        this.cpuTimeUsed = cpuTimeUsed;
+    }
+
+    public TaskBlock getNextTaskBlock() {
+        return nextTaskBlock;
+    }
+
+    public void setNextTaskBlock(TaskBlock nextTaskBlock) {
+        this.nextTaskBlock = nextTaskBlock;
+    }
+
+    // Método para mostrar la información de la tarea
+    public void displayTaskInfo() {
+        System.out.println("Task ID: " + taskId);
+        System.out.println("Task Name: " + taskName);
+        System.out.println("Task Status: " + taskStatus);
+        System.out.println("Remaining Time: " + remainingTime + " seconds");
+        System.out.println("Memory Usage: " + memoryUsage + " MB");
+        System.out.println("Disk Read Operations: " + diskReadOperations);
+        System.out.println("Disk Write Operations: " + diskWriteOperations);
+        System.out.println("CPU Time Used: " + cpuTimeUsed + " seconds");
+
+        // Mostrar información del siguiente TaskBlock, si existe
+        System.out.println("Next Task Block: " + (nextTaskBlock != null ? nextTaskBlock.getTaskId() : "None"));
+    }
+
+    // Método principal para probar la clase TaskBlock
+    public static void main(String[] args) {
+        TaskBlock task1 = new TaskBlock(101, "Task 1");
+        task1.setRemainingTime(120);
+        task1.setTaskStatus("En ejecución");
+        task1.setMemoryUsage(45.5);
+        task1.setDiskReadOperations(10);
+        task1.setDiskWriteOperations(5);
+        task1.setCpuTimeUsed(30.2);
+
+        TaskBlock task2 = new TaskBlock(102, "Task 2");
+        task2.setRemainingTime(200);
+        task2.setTaskStatus("En espera");
+        task2.setMemoryUsage(30.0);
+        task2.setDiskReadOperations(15);
+        task2.setDiskWriteOperations(8);
+        task2.setCpuTimeUsed(10.5);
+
+        // Encadenamos los TaskBlocks
+        task1.setNextTaskBlock(task2);
+
+        // Mostrar la información de la tarea
+        task1.displayTaskInfo();
+        System.out.println();
+        task2.displayTaskInfo();
+    }
+}
+
